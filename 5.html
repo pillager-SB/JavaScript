@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+  <script>
+    "use strict";
+
+    // Ввод исходных данных.
+    let arg1 = +prompt('Введите число arg1'),
+      arg2 = +prompt('Введите число arg2'),
+      operation = prompt('Введите оператор');
+
+    // Запуск функции.
+    console.log(mathOperation(arg1, arg2, operation));
+
+    /**
+     * Return the result of the expression: arg1 operator arg2.
+     * 
+     * @param {number} a First number.
+     * @param {number} b Second number.
+     * @param {string} opr Operator.
+     * @return {number} x The result of the expression.
+     */
+
+    function mathOperation(a, b, opr) {
+      if (test(opr)) {
+        if (opr === "+") {
+          return summ(a, b);
+        } else if (opr === "-") {
+          return subtraction(a, b);
+        } else if (opr === "*") {
+          return multiplication(a, b);
+        } else if (opr === "/") {
+          return division(a, b);
+        }
+      } else {
+        return NaN
+      }
+    }
+
+    /**
+     * Returns the result of checking the operator for validity.
+     * 
+     * @param {string} opr Operator for checking.
+     * @return {boolean} x Result of checking.
+     */
+    function test(opr) {
+      let x = ["+", "-", "*", "/"].includes(opr);
+      return x;
+    }
+
+    /**
+     * Returns the subtraction between a and b.
+     * 
+     * @param {number} a First number.
+     * @param {number} b Second number.
+     * @return {number} x The result of subtracting a smaller number 
+     * from a larger number.
+     */
+    function subtraction(a, b) {
+      let x = (a >= b) ? a - b : b - a;
+      return x;
+    }
+
+    /**
+     * 
+     * Returns the sum of numbers a and b.
+     * 
+     * @param {number} a First term.
+     * @param {number} b Second term.
+     * @return {number} x The sum of all terms.
+     */
+    function summ(a, b) {
+      let x = a + b;
+      return x;
+    }
+
+    /**
+     * Returns the subtraction between a and b.
+     * 
+     * @param {number} a First number.
+     * @param {number} b Second number.
+     * @return {number} x The result of subtracting a smaller number 
+     * from a larger number.
+     */
+    function subtraction(a, b) {
+      let x = (a >= b) ? a - b : b - a;
+      return x;
+    }
+
+    /**
+     * Returns the multiplication between a and b.
+     * 
+     * @param {number} a First number.
+     * @param {number} b Second number.
+     * @return {number} x The result of multiplying a by b .
+     */
+    function multiplication(a, b) {
+      let x = a * b;
+      return x;
+    }
+
+    /**
+     * Returns the quotient of its operands where the left operand (a)
+     *  is the dividend and the right operand (b) is the divisor.
+     * 
+     * @param {number} a Dividend number.
+     * @param {number} b Divisor number.
+     * @return {number} x The result of dividing a by b.
+     */
+    function division(a, b) {
+      let x = a / b;
+      return x;
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<boDy>
+  <!--
+Обязательное задание.
+
+Необходимо реализовать четыре функции, каждая функция должна принимать по два
+числа и выполнять одну из операций (каждая функция выполняет одну из них):
+1. Сложение
+2. Разность
+3. Умножение
+4. Деление
+
+Необходимо сделать так, чтобы функция вернула число, например выражение
+`console.log(sum(2, 6));` должно вывести число 8 в консоль (sum - функция
+сложения в данном примере, ваши названия функций могут отличаться).
+
+Округлять значения, которые возвращают функции не нужно, однако, обратите
+внимание на разность, функция должна вычесть из большего числа меньшее, либо
+вернуть 0, если числа равны.
+
+Функциям всегда передаются корректные числа, проверки на NaN, Infinity делать
+не нужно.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+  <script>
+    "use strict";
+
+    let a = +prompt('Введите число a'), b = +prompt('Введите число b');
+    console.log(
+      `a + b = ${summ(a, b)}
+Разность между a и b: ${subtraction(a, b)}
+a * b = ${multiplication(a, b)}
+a / b = ${division(a, b)}`
+    );
+
+
+    /**
+     * Returns the sum of numbers a and b.
+     * 
+     * @param {number} a First term.
+     * @param {number} b Second term.
+     * @return {number} x The sum of all terms.
+     */
+    function summ(a, b) {
+      let x = a + b; // Более лаконичная запись тела функции: return a+b;
+      return x;
+    }
+
+    /**
+     * Returns the subtraction between a and b.
+     * 
+     * @param {number} a First number.
+     * @param {number} b Second number.
+     * @return {number} x The result of subtracting a smaller number 
+     * from a larger number.
+     */
+    function subtraction(a, b) {
+      let x = (a >= b) ? a - b : b - a;
+      return x;
+    }
+
+    /**
+     * Returns the multiplication between a and b.
+     * 
+     * @param {number} a First number.
+     * @param {number} b Second number.
+     * @return {number} x The result of multiplying a by b .
+     */
+    function multiplication(a, b) {
+      let x = a * b;
+      return x;
+    }
+
+    /**
+     * Returns the quotient of its operands where the left operand (a)
+     *  is the dividend and the right operand (b) is the divisor.
+     * 
+     * @param {number} a Dividend number.
+     * @param {number} b Divisor number.
+     * @return {number} x The result of dividing a by b.
+     */
+    function division(a, b) {
+      let x = a / b;
+      return x;
+    }
+
+  </script>
+</boDy>
+
+</html>
