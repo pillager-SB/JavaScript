@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
+Необходимо создать функцию-конструктор/класс для продукта.
+Названия: `ProductES5` для es5 стиля, `ProductES6` для es6 стиля.
+При создании объекта от функции-конструктора/класса необходимо передавать имя
+и цену товара, эта информация должна быть сохранена в объекте.
+Также у объекта должна быть возможность выполнить метод `make25Discount`, данный
+метод должен уменьшать стоимость продукта на 25%.
+Необходимо продемонстрировать работу с объектом (в свободной форме).
+-->
+  <script>
+    "use strict";
+
+    // Функция для вывода данных в консоль. 
+    // Вывод включает в себя:
+    // - имя класса из которого был создан данный объект;
+    // - название товара;
+    // - цену товара;
+    // - цену на товар со скидкой в 25%.
+    function consoleOutput() {
+      console.log(`---------------------------------------------------
+Class: ${this.constructor.name}
+Name of Product: ${this.productName}
+Price of Product: $${this.productPrice}
+25% Discount Price: $${this.make25Discount()}`);
+    }
+
+    // ES5
+    // Реализация через функцию-конструктор.
+    function ProductES5(productName, productPrice) {
+      this.productPrice = productPrice;
+      this.productName = productName;
+    }
+    ProductES5.prototype.make25Discount = function () {
+      // Внутри нашего класса нет свойства для дисконтированной цены,
+      // поэтому возвращаю цену с дисконтом через return 
+      // не меняя значения productPrice.
+      return this.productPrice * 0.75;
+    };
+
+    const product1 = new ProductES5('Hunting Knife', 750);
+    consoleOutput.call(product1);
+
+
+    // ES 6
+    // Реализация через класс.
+    class ProductES6 {
+      constructor(productName, productPrice) {
+        this.productPrice = productPrice;
+        this.productName = productName;
+      }
+
+      make25Discount() {
+        return this.productPrice * 0.75;
+      }
+    }
+
+    const product2 = new ProductES6('Colt AR-15 SP1 Carbine Pre-Ban 223', 2000);
+    consoleOutput.call(product2);
+  </script>
+</body>
+
+</html>
