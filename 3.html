@@ -88,7 +88,7 @@
     "Вы навели на textarea."
      */
     document.querySelector('textarea').addEventListener('mouseover',
-      () => console.log("Вы навели на textarea."))
+      () => console.log("Вы навели на textarea."));
 
     /*
     5. Необходимо повесить событие клика на тег ul. В обработчике события в
@@ -101,7 +101,7 @@
     //функция его вернет, но напечатано оно не будет.
     document.querySelector('ul').addEventListener('click', event => {
       return event.target.tagName !== 'BUTTON'
-        ? undefined : console.log(event.target.textContent)
+        ? undefined : console.log(event.target.textContent);
     });
 
     /*
