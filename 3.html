@@ -58,7 +58,7 @@
     2. Когда мы уводим курсор мыши от звезды, все поставленные классы из первого
     задания должны быть удалены.
      */
-    allStars.addEventListener('mouseout', event => {
+    allStars.addEventListener('mouseout', () => {
       const goldStars = allStars.querySelectorAll('.golden');
       goldStars.forEach(elem => elem.classList.remove('golden'));
     });
