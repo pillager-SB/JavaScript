@@ -68,8 +68,9 @@
     должно моментально отображаться в span. То есть при печати в input'е тег span
     также должен меняться.
     */
+    const spanEl = document.querySelector('span');
     document.querySelector('#from').addEventListener('input', event =>
-      document.querySelector('span').textContent = event.target.value);
+      spanEl.textContent = event.target.value);
 
     /*
     2. При клике на кнопку с классом messageBtn необходимо элементу с классом
@@ -81,7 +82,7 @@
     document.querySelector('.messageBtn').addEventListener('click', () => {
       modClass.classList.add('animate__animated', 'animate__fadeInLeftBig');
       modClass.style.visibility = 'visible';
-    })
+    });
 
     /*
     3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
@@ -97,7 +98,7 @@
 
     const formEl = document.querySelector('form');
     const formFields = formEl.querySelectorAll('input, select');
-    const submitBehavior = formEl.addEventListener('submit', event => {
+    formEl.addEventListener('submit', event => {
       formFields.forEach(field => {
         if (field.value === '') {
           field.classList.add('error');
